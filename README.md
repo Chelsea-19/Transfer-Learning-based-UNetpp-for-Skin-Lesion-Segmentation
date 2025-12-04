@@ -9,7 +9,7 @@
 
 ---
 
-## 📖 项目背景与动机 (Background & Motivation)
+## 项目背景与动机 (Background & Motivation)
 
 在医学图像分析中，获取大量标注数据通常非常困难。传统的从零训练 (Training from Scratch) 往往容易导致模型过拟合或收敛困难。
 
@@ -20,9 +20,18 @@
 2.  **加速收敛**：相比随机初始化，预训练权重让模型在训练初期就有较低的 Loss，显著缩短训练时间。
 3.  **数据高效性**：在 ISIC 2018 这种相对较小的数据集上，迁移学习显著降低了过拟合风险。
 
+### 提出的网络架构 (Proposed Framework)
+
+下图展示了本项目采用的改进版 U-Net++ 结构。通过密集的嵌套跳跃连接（Nested Skip Pathways）和深层监督（Deep Supervision），模型能够有效融合不同层级的语义特征。
+
+<div align="center">
+  <img src="image/U-Netpp.jpg" alt="Proposed U-Net++ Framework" width="90%">
+  <br>
+  <em>图 1：基于迁移学习的 U-Net++ 网络架构示意图</em>
+</div>
 ---
 
-## 🏗️ 实验模型对比 (Model Architectures)
+## 实验模型对比 (Model Architectures)
 
 为了验证迁移学习方案的优越性，我们将 **Pretrained U-Net++** 与其他三种非预训练或不同架构的模型进行了对比：
 
@@ -37,7 +46,7 @@
 
 ---
 
-## 📊 性能评估 (Evaluation Results)
+## 性能评估 (Evaluation Results)
 
 我们在 ISIC 2018 测试集上进行了定量评估，结果表明引入迁移学习的 U-Net++ 在 Dice 系数和 IoU 指标上均取得了最优表现。
 
@@ -48,11 +57,28 @@
 | ResUNet | 0.8xxx | 0.7xxx | 相比 U-Net 收敛更快 |
 | U-Net (Baseline) | 0.8xxx | 0.7xxx | 基础模型 |
 
-*(注：请参考 Notebook 输出日志替换上述数值)*
+## 可视化结果 (Visualized Results)
+针对 ISIC 2018 不同组织病变得到了不同的分割结果，如下所示：
 
+<div align="center">
+  <img src="image/result_1.png" alt="Proposed U-Net++ Framework" width="90%">
+  <br>
+</div>
+
+<div align="center">
+  <img src="image/result_2.png" alt="Proposed U-Net++ Framework" width="90%">
+  <br>
+</div>
+
+
+<div align="center">
+  <img src="image/result_3.png" alt="Proposed U-Net++ Framework" width="90%">
+  <br>
+  <em>图 2：针对不同病变的定性分割结果</em>
+</div>
 ---
 
-## 🚀 快速复现 (Quick Start)
+## 快速复现 (Quick Start)
 
 ### 1. 环境依赖
 ```bash
@@ -78,7 +104,7 @@ pip install -r requirements.txt
 
 ---
 
-## 📂 仓库结构 (Repository Structure)
+## 仓库结构 (Repository Structure)
 
 ```text
 .
@@ -94,6 +120,6 @@ pip install -r requirements.txt
 
 ---
 
-## 📜 许可证 (License)
+## 许可证 (License)
 
 本项目遵循 [MIT License](LICENSE)。
