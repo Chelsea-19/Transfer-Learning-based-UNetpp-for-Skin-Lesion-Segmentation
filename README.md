@@ -43,7 +43,7 @@
 
 | Model Architecture | Dice Coefficient | IoU Score | 优势分析 |
 | :--- | :---: | :---: | :--- |
-| **Pretrained U-Net++** | **0.8xxx** | **0.7xxx** | **利用迁移学习，边界分割最精细** |
+| **Pretrained U-Net++** | **0.8865** | **0.7961** | **利用迁移学习，边界分割最精细** |
 | TransUNet | 0.8xxx | 0.7xxx | 擅长捕捉全局上下文，但计算量大 |
 | ResUNet | 0.8xxx | 0.7xxx | 相比 U-Net 收敛更快 |
 | U-Net (Baseline) | 0.8xxx | 0.7xxx | 基础模型 |
